@@ -285,6 +285,7 @@ package body Ocarina.Backends.Properties is
    Language_QGenAda_Name         : Name_Id;
    Language_QGenC_Name           : Name_Id;
    Language_MicroPython_Name     : Name_Id;
+   Language_ROS_Bridge_Name      : Name_Id;
 
    Thread_Periodic_Name   : Name_Id;
    Thread_Aperiodic_Name  : Name_Id;
@@ -1232,6 +1233,9 @@ package body Ocarina.Backends.Properties is
       elsif Source_L = Language_MicroPython_Name then
          return Language_MicroPython;
 
+      elsif Source_L = Language_ROS_Bridge_Name then
+         return Language_ROS_Bridge;
+
       else
          Display_Located_Error
            (AIN.Loc (E),
@@ -1458,6 +1462,10 @@ package body Ocarina.Backends.Properties is
 
          when Language_Gui | Language_Rhapsody =>
             return Subprogram_Unknown;
+
+         when Language_ROS_Bridge =>
+            return Subprogram_Unknown;
+
       end case;
    end Get_Subprogram_Kind;
 
@@ -3007,6 +3015,7 @@ package body Ocarina.Backends.Properties is
       Language_QGenAda_Name         := Get_String_Name ("qgenada");
       Language_QGenC_Name           := Get_String_Name ("qgenc");
       Language_MicroPython_Name     := Get_String_Name ("micropython");
+      Language_ROS_Bridge_Name      := Get_String_Name ("ros_bridge");
 
       Thread_Periodic_Name   := Get_String_Name ("periodic");
       Thread_Aperiodic_Name  := Get_String_Name ("aperiodic");
