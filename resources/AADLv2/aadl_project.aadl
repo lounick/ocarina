@@ -79,6 +79,7 @@ property set AADL_Project is
      System_C,
      VDM,
      VHDL,
+     VHDL_BRAVE,
      ACN,
      QGenC,
      QGenAda,
