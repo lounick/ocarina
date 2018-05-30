@@ -282,6 +282,7 @@ package body Ocarina.Backends.Properties is
    Language_Simulink_Name        : Name_Id;
    Language_System_C_Name        : Name_Id;
    Language_VHDL_Name            : Name_Id;
+   Language_VHDL_BRAVE_Name      : Name_Id;
    Language_VDM_Name             : Name_Id;
    Language_QGenAda_Name         : Name_Id;
    Language_QGenC_Name           : Name_Id;
@@ -1186,6 +1187,7 @@ package body Ocarina.Backends.Properties is
 
       elsif Source_L = Language_SDL_Name
         or else Source_L = Language_SDL_ObjectGeode_Name
+        or else Source_L = Language_SDL_OpenGEODE_Name
       then
          return Language_SDL;
 
@@ -1199,9 +1201,6 @@ package body Ocarina.Backends.Properties is
 
       elsif Source_L = Language_CPP_Name then
          return Language_CPP;
-
-      elsif Source_L = Language_SDL_OpenGEODE_Name then
-         return Language_SDL_OpenGEODE;
 
       elsif Source_L = Language_RTSJ_Name then
          return Language_RTSJ;
@@ -1220,6 +1219,9 @@ package body Ocarina.Backends.Properties is
 
       elsif Source_L = Language_VHDL_Name then
          return Language_VHDL;
+
+      elsif Source_L = Language_VHDL_BRAVE_Name then
+         return Language_VHDL_BRAVE;
 
       elsif Source_L = Language_VDM_Name then
          return Language_VDM;
@@ -1338,7 +1340,8 @@ package body Ocarina.Backends.Properties is
            Language_System_C      |
            Language_SDL_OpenGEODE |
            Language_VDM           |
-           Language_VHDL          =>
+           Language_VHDL
+           Language_VHDL_BRAVE    =>
             --  A subprogram having this language as implementation
             --  language is not supported.
 
@@ -3010,6 +3013,7 @@ package body Ocarina.Backends.Properties is
       Language_RTDS_Name            := Get_String_Name ("rtds");
       Language_SDL_RTDS_Name        := Get_String_Name ("sdl_rtds");
       Language_VHDL_Name            := Get_String_Name ("vhdl");
+      Language_VHDL_BRAVE_Name      := Get_String_Name ("vhdl_brave");
       Language_VDM_Name             := Get_String_Name ("vdm");
       Language_System_C_Name        := Get_String_Name ("system_c");
       Language_QGenAda_Name         := Get_String_Name ("qgenada");
