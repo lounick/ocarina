@@ -2,11 +2,11 @@
 --                                                                          --
 --                           OCARINA COMPONENTS                             --
 --                                                                          --
---                     O C A R I N A . B A C K E N D S                      --
+--    O C A R I N A . B A C K E N D S . A I R _ C O N F . M A P P I N G     --
 --                                                                          --
---                              P r o j e c t                               --
+--                                 S p e c                                  --
 --                                                                          --
---    Copyright (C) 2007-2009 Telecom ParisTech, 2010-2018 ESA & ISAE.      --
+--                     Copyright (C) 2018 ESA & ISAE.                       --
 --                                                                          --
 -- Ocarina  is free software; you can redistribute it and/or modify under   --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -29,48 +29,36 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
-with "ocarina";
-with "ocarina-core";
+with Ocarina.Backends.Properties; use Ocarina.Backends.Properties;
 
-project Ocarina.Backends is
-   Src_Dir := Ocarina.Top_Src_Dir & "/backends";
-   Build_Dir := Ocarina.Top_Build_Dir & "/backends";
+package Ocarina.Backends.AIR_Conf.Mapping is
 
-   for Source_Dirs use (Src_Dir, Build_Dir,
-   Src_Dir & "/aadl_pp",
-   Src_Dir & "/aadl_xml",
-   Src_Dir & "/air_conf",
-   Src_Dir & "/alloy",
-   Src_Dir & "/arinc653",
-   Src_Dir & "/arinc653_conf",
-   Src_Dir & "/asn1_deployment",
-   Src_Dir & "/ast_ada",
-   Src_Dir & "/ast_asn1",
-   Src_Dir & "/ast_c",
-   Src_Dir & "/ast_xml",
-   Src_Dir & "/bound-t",
-   Src_Dir & "/cheddar",
-   Src_Dir & "/connection_matrix",
-   Src_Dir & "/deos_conf",
-   Src_Dir & "/functions_matrix",
-   Src_Dir & "/lnt",
-   Src_Dir & "/mast",
-   Src_Dir & "/petri_nets",
-   Src_Dir & "/po_hi_ada",
-   Src_Dir & "/po_hi_c",
-   Src_Dir & "/real",
-   Src_Dir & "/stats",
-   Src_Dir & "/subprograms",
-   Src_Dir & "/vxwork653_conf",
-   Src_Dir & "/xtratum_conf"
-   );
+   function Map_Distributed_Application (E : Node_Id) return Node_Id;
+   function Map_HI_Node (E : Node_Id) return Node_Id;
+   function Map_HI_Unit (E : Node_Id) return Node_Id;
+   function Map_Port (F : Node_Id) return Node_Id;
+   function Map_Data (E : Node_Id) return Node_Id;
+   function Map_Data_Access (E : Node_Id) return Node_Id;
+   function Map_Bus_Access (E : Node_Id) return Node_Id;
+   function Map_System (E : Node_Id) return Node_Id;
+   function Map_Process
+     (E                    : Node_Id;
+      Partition_Identifier : Unsigned_Long_Long) return Node_Id;
+   function Map_Data_Size (T : Size_Type) return Unsigned_Long_Long;
+   function Map_Virtual_Processor (E : Node_Id) return Node_Id;
+   function Map_Processor (E : Node_Id) return Node_Id;
+   function Map_Bus (E : Node_Id) return Node_Id;
+   function Map_Port_Connection (E : Node_Id) return Node_Id;
+   function Map_Process_Memory (Process : Node_Id) return Node_Id;
+   function Map_System_Description (System : Node_Id) return Node_Id;
+   function Map_Connection
+     (Connection         : Node_Id;
+      Channel_Identifier : Unsigned_Long_Long) return Node_Id;
 
-   for Object_Dir use Build_Dir & "/objects";
-   for Library_Dir use Build_Dir & "/libs";
-   for Library_Name use "ocarina-backends";
-   for Library_Kind use Ocarina.Lib_Type;
+   function Map_Process_HM_Table (Process : Node_Id) return Node_Id;
 
-   package Compiler renames Ocarina.Compiler;
-   package Binder renames Ocarina.Binder;
-   package Builder renames Ocarina.Builder;
-end Ocarina.Backends;
+   function Map_Processor_HM_Table (Processor : Node_Id) return Node_Id;
+
+   function Map_System_HM_Table (System : Node_Id) return Node_Id;
+
+end Ocarina.Backends.AIR_Conf.Mapping;

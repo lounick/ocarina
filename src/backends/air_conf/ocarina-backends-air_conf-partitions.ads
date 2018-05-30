@@ -2,11 +2,11 @@
 --                                                                          --
 --                           OCARINA COMPONENTS                             --
 --                                                                          --
---                     O C A R I N A . B A C K E N D S                      --
+--                  OCARINA.BACKENDS.AIR_CONF.PARTITIONS                    --
 --                                                                          --
---                              P r o j e c t                               --
+--                                 S p e c                                  --
 --                                                                          --
---    Copyright (C) 2007-2009 Telecom ParisTech, 2010-2018 ESA & ISAE.      --
+--                     Copyright (C) 2018 ESA & ISAE.                       --
 --                                                                          --
 -- Ocarina  is free software; you can redistribute it and/or modify under   --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -29,48 +29,8 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
-with "ocarina";
-with "ocarina-core";
+package Ocarina.Backends.AIR_Conf.Partitions is
 
-project Ocarina.Backends is
-   Src_Dir := Ocarina.Top_Src_Dir & "/backends";
-   Build_Dir := Ocarina.Top_Build_Dir & "/backends";
+   procedure Visit (E : Node_Id);
 
-   for Source_Dirs use (Src_Dir, Build_Dir,
-   Src_Dir & "/aadl_pp",
-   Src_Dir & "/aadl_xml",
-   Src_Dir & "/air_conf",
-   Src_Dir & "/alloy",
-   Src_Dir & "/arinc653",
-   Src_Dir & "/arinc653_conf",
-   Src_Dir & "/asn1_deployment",
-   Src_Dir & "/ast_ada",
-   Src_Dir & "/ast_asn1",
-   Src_Dir & "/ast_c",
-   Src_Dir & "/ast_xml",
-   Src_Dir & "/bound-t",
-   Src_Dir & "/cheddar",
-   Src_Dir & "/connection_matrix",
-   Src_Dir & "/deos_conf",
-   Src_Dir & "/functions_matrix",
-   Src_Dir & "/lnt",
-   Src_Dir & "/mast",
-   Src_Dir & "/petri_nets",
-   Src_Dir & "/po_hi_ada",
-   Src_Dir & "/po_hi_c",
-   Src_Dir & "/real",
-   Src_Dir & "/stats",
-   Src_Dir & "/subprograms",
-   Src_Dir & "/vxwork653_conf",
-   Src_Dir & "/xtratum_conf"
-   );
-
-   for Object_Dir use Build_Dir & "/objects";
-   for Library_Dir use Build_Dir & "/libs";
-   for Library_Name use "ocarina-backends";
-   for Library_Kind use Ocarina.Lib_Type;
-
-   package Compiler renames Ocarina.Compiler;
-   package Binder renames Ocarina.Binder;
-   package Builder renames Ocarina.Builder;
-end Ocarina.Backends;
+end Ocarina.Backends.AIR_Conf.Partitions;

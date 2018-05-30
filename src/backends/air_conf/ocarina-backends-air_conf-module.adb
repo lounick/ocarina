@@ -2,11 +2,11 @@
 --                                                                          --
 --                           OCARINA COMPONENTS                             --
 --                                                                          --
---            OCARINA.BACKENDS.XTRATUM_CONF.SYSTEM_DESCRIPTION              --
+--     O C A R I N A . B A C K E N D S . A I R _ C O N F . M O D U L E      --
 --                                                                          --
 --                                 B o d y                                  --
 --                                                                          --
---                   Copyright (C) 2011-2018 ESA & ISAE.                    --
+--                     Copyright (C) 2018 ESA & ISAE.                       --
 --                                                                          --
 -- Ocarina  is free software; you can redistribute it and/or modify under   --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -36,12 +36,11 @@ with Ocarina.ME_AADL.AADL_Instances.Nutils;
 with Ocarina.ME_AADL.AADL_Instances.Entities;
 
 with Ocarina.Backends.Utils;
-with Ocarina.Backends.XML_Values;
 with Ocarina.Backends.XML_Tree.Nodes;
 with Ocarina.Backends.XML_Tree.Nutils;
-with Ocarina.Backends.Xtratum_Conf.Mapping;
+with Ocarina.Backends.AIR_Conf.Mapping;
 
-package body Ocarina.Backends.Xtratum_Conf.System_Description is
+package body Ocarina.Backends.AIR_Conf.Module is
 
    use Locations;
    use Ocarina.ME_AADL;
@@ -49,12 +48,11 @@ package body Ocarina.Backends.Xtratum_Conf.System_Description is
    use Ocarina.ME_AADL.AADL_Instances.Entities;
    use Ocarina.Backends.Utils;
    use Ocarina.Backends.XML_Tree.Nutils;
-   use Ocarina.Backends.Xtratum_Conf.Mapping;
+   use Ocarina.Backends.AIR_Conf.Mapping;
 
    package AINU renames Ocarina.ME_AADL.AADL_Instances.Nutils;
    package AIN renames Ocarina.ME_AADL.AADL_Instances.Nodes;
    package XTN renames Ocarina.Backends.XML_Tree.Nodes;
-   package XV renames Ocarina.Backends.XML_Values;
 
    procedure Visit_Architecture_Instance (E : Node_Id);
    procedure Visit_Component_Instance (E : Node_Id);
@@ -63,8 +61,6 @@ package body Ocarina.Backends.Xtratum_Conf.System_Description is
    procedure Visit_Processor_Instance (E : Node_Id);
    procedure Visit_Virtual_Processor_Instance (E : Node_Id);
    procedure Visit_Subcomponents_Of is new Visit_Subcomponents_Of_G (Visit);
-
-   Partition_Identifier : Unsigned_Long_Long := 0;
 
    -----------
    -- Visit --
@@ -194,16 +190,8 @@ package body Ocarina.Backends.Xtratum_Conf.System_Description is
    --------------------------------------
 
    procedure Visit_Virtual_Processor_Instance (E : Node_Id) is
-      Partition_Identifier_Node : Node_Id;
    begin
-      Partition_Identifier_Node :=
-        Make_Literal (XV.New_Numeric_Value (Partition_Identifier, 1, 10));
-
-      AIN.Set_Backend_Node (Identifier (E), Partition_Identifier_Node);
-
       Visit_Subcomponents_Of (E);
-
-      Partition_Identifier := Partition_Identifier + 1;
    end Visit_Virtual_Processor_Instance;
 
-end Ocarina.Backends.Xtratum_Conf.System_Description;
+end Ocarina.Backends.AIR_Conf.Module;
