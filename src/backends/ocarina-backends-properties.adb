@@ -1340,7 +1340,7 @@ package body Ocarina.Backends.Properties is
            Language_System_C      |
            Language_SDL_OpenGEODE |
            Language_VDM           |
-           Language_VHDL
+           Language_VHDL          |
            Language_VHDL_BRAVE    =>
             --  A subprogram having this language as implementation
             --  language is not supported.
