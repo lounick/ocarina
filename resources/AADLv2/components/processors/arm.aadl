@@ -37,29 +37,4 @@ properties
    Cheddar_Properties::Preemptive_Scheduler => true;
 end stm32f4_discovery.gnat;
 
-processor nds extends arm
-end nds;
-
-processor implementation nds.rtems
-properties
-   Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol);
-   Priority_Range => 0 .. 255;
-   Cheddar_Properties::Scheduler_Quantum => 0 Ms;
-   Cheddar_Properties::Preemptive_Scheduler => true;
-   Deployment::Execution_Platform => NDS_RTEMS;
-end nds.rtems;
-
-
-processor gumstix extends arm
-end gumstix;
-
-processor implementation gumstix.rtems
-properties
-   Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol);
-   Priority_Range => 0 .. 255;
-   Cheddar_Properties::Scheduler_Quantum => 0 Ms;
-   Cheddar_Properties::Preemptive_Scheduler => true;
-   Deployment::Execution_Platform => GUMSTIX_RTEMS;
-end gumstix.rtems;
-
 end ocarina_processors_arm;

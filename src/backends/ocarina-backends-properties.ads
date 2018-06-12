@@ -6,7 +6,7 @@
 --                                                                          --
 --                                 S p e c                                  --
 --                                                                          --
---    Copyright (C) 2008-2009 Telecom ParisTech, 2010-2017 ESA & ISAE.      --
+--    Copyright (C) 2008-2009 Telecom ParisTech, 2010-2018 ESA & ISAE.      --
 --                                                                          --
 -- Ocarina  is free software; you can redistribute it and/or modify under   --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -545,15 +545,9 @@ package Ocarina.Backends.Properties is
      (Platform_Native,
       Platform_Native_Compcert,
       Platform_Bench,
-      Platform_Gumstix_RTEMS,
-      Platform_Gumstix_RTEMS_POSIX,
-      Platform_NDS_RTEMS,
-      Platform_NDS_RTEMS_POSIX,
+      Platform_X86_LINUXTASTE,
       Platform_LEON_RTEMS,
       Platform_LEON_RTEMS_POSIX,
-      Platform_X86_RTEMS,
-      Platform_X86_RTEMS_POSIX,
-      Platform_X86_LINUXTASTE,
       Platform_LEON_GNAT,
       Platform_LEON3_SCOC3,
       Platform_LEON3_XM3,
@@ -561,16 +555,16 @@ package Ocarina.Backends.Properties is
       Platform_LEON_ORK,
       Platform_WIN32,
       Platform_LINUX32,
+      Platform_LINUX32_DLL,
       Platform_LINUX32_XENOMAI_NATIVE,
       Platform_LINUX32_XENOMAI_POSIX,
       Platform_LINUX64,
+      Platform_LINUX64_DLL,
       Platform_ERC32_ORK,
-      Platform_ARM_DSLINUX,
-      Platform_ARM_N770,
-      Platform_ARM_CrazyFlie,
       Platform_MARTE_OS,
       Platform_VxWorks,
       Platform_GNAT_Runtime,
+      Platform_AIR,
       Platform_None); --  Unspecified
 
    function Get_Execution_Platform
