@@ -267,6 +267,7 @@ package body Ocarina.Backends.Properties is
    Language_Device_Name          : Name_Id;
    Language_Esterel_Name         : Name_Id;
    Language_GUI_Name             : Name_Id;
+   Language_ROS_Bridge_Name      : Name_Id;
    Language_LUA_Name             : Name_Id;
    Language_Lustre_Name          : Name_Id;
    Language_Lustre5_Name         : Name_Id;
@@ -1223,6 +1224,9 @@ package body Ocarina.Backends.Properties is
       elsif Source_L = Language_GUI_Name then
          return Language_Gui;
 
+      elsif Source_L = Language_ROS_Bridge_Name then
+         return Language_ROS_Bridge;
+ 
       elsif Source_L = Language_LUA_Name then
          return Language_Lua;
 
@@ -1460,7 +1464,7 @@ package body Ocarina.Backends.Properties is
                end if;
             end if;
 
-         when Language_Gui | Language_Rhapsody =>
+         when Language_Gui | Language_Rhapsody | Language_ROS_Bridge =>
             return Subprogram_Unknown;
       end case;
    end Get_Subprogram_Kind;
@@ -2999,6 +3003,7 @@ package body Ocarina.Backends.Properties is
       Language_Lustre5_Name         := Get_String_Name ("lustre5");
       Language_Lustre6_Name         := Get_String_Name ("lustre6");
       Language_GUI_Name             := Get_String_Name ("gui");
+      Language_ROS_Bridge           := Get_String_Name ("ros_bridge");
       Language_LUA_Name             := Get_String_Name ("lua");
       Language_Rhapsody_Name        := Get_String_Name ("rhapsody");
       Language_SCADE6_Name          := Get_String_Name ("scade6");

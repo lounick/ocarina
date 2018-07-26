@@ -65,6 +65,7 @@ package Ocarina.Backends.Properties is
       Language_Esterel,
       Language_Device,
       Language_Gui,
+      Language_ROS_Bridge,
       Language_Lua,
       Language_Lustre,
       Language_Rhapsody,

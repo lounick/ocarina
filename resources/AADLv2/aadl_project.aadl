@@ -62,6 +62,7 @@ property set AADL_Project is
      CPP,     -- C++
      Esterel,
      GUI,
+     ROS_Bridge,
      LUA,
      Lustre,
      Lustre5, -- alias for Lustre

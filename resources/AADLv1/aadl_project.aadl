@@ -89,6 +89,7 @@ property set AADL_Project is
      ASN1,
      C,
      GUI,
+     ROS_Bridge,
      Lustre,
      Lustre5, -- alias for Lustre
      Lustre6, -- alias for Lustre
