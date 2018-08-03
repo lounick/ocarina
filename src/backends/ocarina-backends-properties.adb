@@ -3003,7 +3003,7 @@ package body Ocarina.Backends.Properties is
       Language_Lustre5_Name         := Get_String_Name ("lustre5");
       Language_Lustre6_Name         := Get_String_Name ("lustre6");
       Language_GUI_Name             := Get_String_Name ("gui");
-      Language_ROS_Bridge           := Get_String_Name ("ros_bridge");
+      Language_ROS_Bridge_Name      := Get_String_Name ("ros_bridge");
       Language_LUA_Name             := Get_String_Name ("lua");
       Language_Rhapsody_Name        := Get_String_Name ("rhapsody");
       Language_SCADE6_Name          := Get_String_Name ("scade6");
